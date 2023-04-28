@@ -19,7 +19,26 @@ public class studentRecord {
     private String nilai;
     
     private static int studentCount;
-    
+    public studentRecord()
+    {
+        // area penulisan kode
+        studentCount++;
+    }
+    //public studentRecord(){ 
+         //area inisialisasi kode;    
+   // }
+     public studentRecord(String temp){
+         this.name = temp; 
+          studentCount++;
+     } 
+     public studentRecord(String name, String address){
+         this.name = name; this.address = address; 
+          studentCount++;
+     } 
+     public studentRecord(double mGrade, double eGrade, double sGrade){
+         mathGrade = mGrade;  englishGrade = eGrade;  scienceGrade = sGrade;  
+          studentCount++;
+     } 
     public String getName(){
         return name;
     }
@@ -83,4 +102,15 @@ public class studentRecord {
         }
         return nilai;
     } 
+    
+    public void print( String temp ){
+        System.out.println("Name:" + name); 
+        System.out.println("Address:" + address);  
+        System.out.println("Age:" + age);  } 
+ 
+public void print(double eGrade, double mGrade, double sGrade){
+    //System.out.println("Name:" + name); 
+    System.out.println("Math Grade:" + mGrade);  
+    System.out.println("English Grade:" + eGrade);  
+    System.out.println("Science Grade:" + sGrade);  } 
 }

@@ -28,5 +28,18 @@ public class studentRecordExample {
         System.out.println("Rata - Rata Nilai :"+annaRecord.getaverage());
         System.out.println("Prediket Nilai    :"+annaRecord.getnilai());
         
+        studentRecord aliRecord = new studentRecord();
+        aliRecord.setName("Ali");
+        aliRecord.setaddress("Padang");
+        aliRecord.setage(23);
+        aliRecord.print("");
+        aliRecord.print(80,70,80);
+        
+         studentRecord budiRecord = new studentRecord("budi", "Bukittinggi");
+         budiRecord.print("");
+         
+        System.out.println("Jumlah siswa : "+ studentRecord.getstudentCount());
+        
+        
     }
 }
