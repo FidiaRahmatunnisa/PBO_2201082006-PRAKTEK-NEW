@@ -14,7 +14,8 @@ public class bukuAlamat {
     private String nomor;
     private String email;
     
-    private static int bukuAlamatTambah;
+    private static int bukuAlamatTambah;// method yang dibuat karena berkaitan dengan kelasnya sendiri 
+    // bukan objek / instance kelas
     
     public bukuAlamat(){
     bukuAlamatTambah++;

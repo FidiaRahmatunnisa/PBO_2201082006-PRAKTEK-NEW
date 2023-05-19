@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+
 public class menuBukuAlamat {
     public static void main(String[] args){
         BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
@@ -37,8 +38,22 @@ public class menuBukuAlamat {
                               temp.setEmail(dataIn.readLine());
                               data.insert(temp);
                               break;
-                    case 2 : 
-                              
+                    case 2 :  System.out.println("nama               :");
+                              System.out.println("alamat             :");
+                              System.out.println("nomor Telepon      :");
+                              System.out.println("email              :");
+                              break;
+                    case 3 :  temp = new bukuAlamat();
+                              System.out.print("nama               :");
+                              temp.setNama(dataIn.readLine());
+                              System.out.print("alamat             :");
+                              temp.setAlamat(dataIn.readLine());
+                              System.out.print("nomor Telepon      :");
+                              temp.setNomor(dataIn.readLine());
+                              System.out.print("email              :");
+                              temp.setEmail(dataIn.readLine());
+                              data.insert(temp);   
+                              break;  
                     case 4 : bukuAlamat[] list = data.getAll();
                              for(int i=0;i<list.length;i++){
 //                                System.out.println("buku alamat ke---> "+(i+1));
@@ -47,8 +62,6 @@ public class menuBukuAlamat {
                                 System.out.println("nomor telepon   :"+list[i].getNomor());
                                 System.out.println("email           : "+list[i].getEmail());
                                break;
-                               
-                        
         }
                 }
             }
