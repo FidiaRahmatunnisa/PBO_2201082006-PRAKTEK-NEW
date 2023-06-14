@@ -47,8 +47,7 @@ public class bukuAlamat {
 //        bukuAlamatTambah++;
 //    }
 //    
-    
-    
+   
     //cara 1
     public String getNama(){
         return nama;

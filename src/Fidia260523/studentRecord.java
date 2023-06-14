@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Fidia280423;
+package Fidia260523;
 
 /**
  *
  * @author HP
  */
 public class studentRecord { // kelas
-    private String name;  // variabel name tipe data string dengan hak akses private
-    private String address; // sama seperti sebelumnya
+    protected String name;  // variabel name tipe data string dengan hak akses private
+    protected String address; // sama seperti sebelumnya
     private int age;    // sama seperti diatas
-    private double mathGrade; 
-    private double englishGrade; 
-    private double scienceGrade; 
+    double mathGrade;    // awalnya ini private , kemudian diubah menjadi default atau public agar bisa digunakan dikelas sebelah
+    double englishGrade;  // sama dengan yang diatas, awalnya ini private
+    double scienceGrade;   // sama dengan yang diatas, awalnya ini private
     private double average;
     private String nilai; //  sampai disini penjelasannya sama seperti yang variabel awal
     
@@ -37,11 +37,14 @@ public class studentRecord { // kelas
           studentCount++;
      } 
      public studentRecord(String name, String address){ // bagian ini bernama o
-         this.name = name; this.address = address; 
+         this.name = name; 
+         this.address = address; 
           studentCount++;
      } 
      public studentRecord(double mGrade, double eGrade, double sGrade){
-         mathGrade = mGrade;  englishGrade = eGrade;  scienceGrade = sGrade;  
+         mathGrade = mGrade;  
+         englishGrade = eGrade;  
+         scienceGrade = sGrade;  
           studentCount++;
      } 
     public String getName(){
@@ -49,7 +52,6 @@ public class studentRecord { // kelas
     }
     public void setName(String name){
         this.name = name;
-        
     }
     
     public String getaddress(){
@@ -108,7 +110,7 @@ public class studentRecord { // kelas
         return nilai;
     } 
     
-    public void print( String temp ){
+    public void print( String temp ){ // seolah set, memang set, karena pakai void, parameter ada isinya
         System.out.println("Name:" + name); 
         System.out.println("Address:" + address);  
         System.out.println("Age:" + age);  } 

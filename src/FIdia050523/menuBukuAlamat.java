@@ -38,35 +38,57 @@ public class menuBukuAlamat {
                               temp.setEmail(dataIn.readLine());
                               data.insert(temp);
                               break;
-                    case 2 :  System.out.println("nama               :");
-                              System.out.println("alamat             :");
-                              System.out.println("nomor Telepon      :");
-                              System.out.println("email              :");
-                              break;
-                    case 3 :  temp = new bukuAlamat();
-                              System.out.print("nama               :");
-                              temp.setNama(dataIn.readLine());
-                              System.out.print("alamat             :");
-                              temp.setAlamat(dataIn.readLine());
-                              System.out.print("nomor Telepon      :");
-                              temp.setNomor(dataIn.readLine());
-                              System.out.print("email              :");
-                              temp.setEmail(dataIn.readLine());
-                              data.insert(temp);   
-                              break;  
+//                    case 2 :  System.out.println("nama               :");
+//                              System.out.println("alamat             :");
+//                              System.out.println("nomor Telepon      :");
+//                              System.out.println("email              :");
+//                              break;
+//                    case 3 :  
+                        //System.out.print("Masukkan nama untuk mencari data yang akan diupdate: ");
+//                        String namaUpdate = dataIn.readLine();
+    
+                        // Mencari data berdasarkan nama
+//                            bukuAlamat dataToUpdate = data.getDataByNama(namaUpdate);
+//    
+//                    //if (dataToUpdate != null) {
+//                        System.out.println("Data ditemukan. Silakan masukkan data baru untuk update.");
+//                        System.out.print("Nama baru           : ");
+//                        String newNama = dataIn.readLine();
+//                        System.out.print("Alamat baru         : ");
+//                        String newAlamat = dataIn.readLine();
+//                        System.out.print("Nomor Telepon baru  : ");
+//                        String newNomor = dataIn.readLine();
+//                        System.out.print("Email baru          : ");
+//                        String newEmail = dataIn.readLine();
+//        
+//                        // Update data
+//                        dataToUpdate.setNama(newNama);
+//                        dataToUpdate.setAlamat(newAlamat);
+//                        dataToUpdate.setNomor(newNomor);
+//                        dataToUpdate.setEmail(newEmail);
+        
+                        //System.out.println("Data berhasil diupdate.");
+//                    } else {    
+//                        System.out.println("Data tidak ditemukan.");
+//                    }
+//                        break;        
+           
                     case 4 : bukuAlamat[] list = data.getAll();
-                             for(int i=0;i<list.length;i++){
-//                                System.out.println("buku alamat ke---> "+(i+1));
-                                System.out.println("nama            :"+list[i].getNama());
-                                System.out.println("alamat          :"+list[i].getAlamat());
-                                System.out.println("nomor telepon   :"+list[i].getNomor());
-                                System.out.println("email           : "+list[i].getEmail());
-                               break;
-        }
+                            int i = 0;
+                            for (bukuAlamat list1 : list) {
+                              System.out.println("buku alamat ke---> "+(i+1));
+                              System.out.println("nama            :" + list1.getNama());
+                              System.out.println("alamat          :" + list1.getAlamat());
+                              System.out.println("nomor telepon   :" + list1.getNomor());
+                               System.out.println("email           : " + list1.getEmail());
+                            break;
+                    }
+                    default : System.out.println("Nomor yang anda masukan tidak sesuai");
+
                 }
             }
         }
-        catch(Exception ex){
+        catch(IOException | NumberFormatException ex){
             
         }
     }

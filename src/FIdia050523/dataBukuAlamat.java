@@ -9,27 +9,27 @@ package FIdia050523;
  * @author HP
  */
 public class dataBukuAlamat {
-    private bukuAlamat[] data = new bukuAlamat[100];
+    private final bukuAlamat[] data = new bukuAlamat[100];  // padahal bukuAlamat kelas,tapi bisa jadi array saat dipanggil kekelas lain
     private int index;
     
-    public void update(int index, bukuAlamat buku){
+    public void update(int index, bukuAlamat buku){ // update data  --- set, pakai void
         data[index] = buku;
     }
     
-    public void insert(bukuAlamat buku){
+    public void insert(bukuAlamat buku){ // masukan data   --set, pakai void
         data[index] = buku;
         index++;
     }
     
-    public bukuAlamat[] getAll(){
-        bukuAlamat[] temp = new bukuAlamat[index];
+    public bukuAlamat[] getAll(){ // tampilkan data
+        bukuAlamat[] temp = new bukuAlamat[index]; // temp -- tempat tampung data yang kini sedang kosong
         for(int i=0;i<index;i++){
             temp[i]=data[i];
         }
         return data;
     }
     
-    public void delete(int index){
+    public void delete(int index){  // hapus data
         data[index].setNama("");
         data[index].setAlamat("");
         data[index].setNomor("");
@@ -51,7 +51,7 @@ public class dataBukuAlamat {
         temp2.setEmail("rahamnilai765@gmail.com");
         data.insert(temp2);
         
-        //tampil
+//        tampil
         bukuAlamat[] list = data.getAll();
         for(int i=0;i<list.length;i++){
             System.out.println("buku alamat ke---> "+(i+1));
@@ -59,7 +59,10 @@ public class dataBukuAlamat {
             System.out.println("alamat          :"+list[i].getAlamat());
             System.out.println("nomor telepon   :"+list[i].getNomor());
             System.out.println("email         : "+list[i].getEmail());
-                    
         }
     }
+
+//    bukuAlamat getDataByNama(String namaUpdate) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
 }

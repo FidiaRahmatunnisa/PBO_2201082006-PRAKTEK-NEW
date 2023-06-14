@@ -8,8 +8,14 @@ package Fidia280423;
  *
  * @author HP
  */
+//import java.util.Scanner;
+
 public class studentRecordExample {
     public static void main(String[] args){
+//        Scanner baru = new Scanner(System.in);
+//        String daia;
+//        daia = baru.Line();
+        
         studentRecord annaRecord = new studentRecord();
         annaRecord.setName("anna");
         annaRecord.setaddress("Padang");
