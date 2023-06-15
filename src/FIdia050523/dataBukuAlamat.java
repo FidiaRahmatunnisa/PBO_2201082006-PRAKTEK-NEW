@@ -26,14 +26,20 @@ public class dataBukuAlamat {
         for(int i=0;i<index;i++){
             temp[i]=data[i];
         }
-        return data;
+        return temp;
     }
     
-    public void delete(int index){  // hapus data
-        data[index].setNama("");
-        data[index].setAlamat("");
-        data[index].setNomor("");
-        data[index].setEmail("");
+    public void delete(int index1){  // hapus data
+        if(data[index1] != null){
+//          data[index] = null;    // tidak bisa
+//        System.out.println("data tidak ada ");  // tidak bisa
+        data[index1].setNama("");
+        data[index1].setAlamat("");
+        data[index1].setNomor("");
+        data[index1].setEmail("");
+        }else{
+            System.out.println("data invalid1");
+        }
     }
     public static void main(String[] args){
         dataBukuAlamat data = new dataBukuAlamat();

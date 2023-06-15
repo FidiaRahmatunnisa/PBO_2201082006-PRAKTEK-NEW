@@ -13,61 +13,93 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class menu_gaji {
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException{
         
-        //kelas sebelah
-       gaji baru = new gaji();   
-       
-       // input
+       // input dengan objek 'isi'
        BufferedReader isi = new BufferedReader(new InputStreamReader(System.in));
+      
+      int pil = 0;
+      
+       //kelas sebelah
+       gaji gajian = new gaji();
+      
+       //ingin perulangan
+       String pi;
+       String pi1 = "ya";
+       String pila;
+       String pila1 = "ya";
        
+      // memakai while untuk perulangan input
+      while(pil == gajian.getgolongan()){
+       
+     do{
+          
        //masukan nip
        System.out.print("masukan nip anda :");
-       baru.setnip(isi.readLine());
+       gajian.setnip(isi.readLine());
        
        //masukan nama
        System.out.print("masukan nama anda :");
-       baru.setnama(isi.readLine());
+       gajian.setnama(isi.readLine());
        
        //masukan golongan
        System.out.print("masukan golongan anda :");
-       baru.setgolongan(isi.readLine());
+       gajian.setgolongan(Integer.parseInt(isi.readLine()));
+       
       
-       int pil = 0;
-        while(pil < 5){
+       if(gajian.getgolongan()== 1 || gajian.getgolongan() == 2 || gajian.getgolongan()== 3){
+            do{
        System.out.println("=== Menu Gaji ===");
        System.out.println("1. Gaji Pokok");
        System.out.println("2. Tunjangan");
        System.out.println("3. Total");
        System.out.println("4. Tampilan Data");
-       System.out.println("masukan pilihan :");
-       pil = isi.read();
+       System.out.print("masukan pilihan :");
+       pil = Integer.parseInt(isi.readLine());
        switch(pil){
            case 1 : 
-                 System.out.println(" gaji anda sebesar : "+baru.banding());
-//                 baru.banding();
+                 System.out.print(" gaji anda sebesar : ");  gajian.banding(gajian.getgolongan(), gajian.getgajinya());
+//                 gajian.banding();;
                  break;
            case 2 : 
-               System.out.println("tunjangan anda sebesar :"+baru.gettunjangan());
-               baru.gettunjangan();
+//               double tunjangan = 0;
+//               tunjangan = 0.05*gajian.banding(pil)
+                System.out.print("tunjangan anda sebesar :"); 
+//                gajian.banding(gajian.getgolongan(), gajian.getgajinya()*0.05);
+                gajian.isitunjangan(gajian.getgolongan(),gajian.gettunjangan(), gajian.getgajinya());
+//               isi.gettunjangan();
                break;
            case 3 : 
-               System.out.println("total gaji anda sebesar :"+baru.gettotal());
-               baru.gettotal();
+               System.out.print("total gaji anda sebesar :");   gajian.akhirnya(gajian.getgolongan(), gajian.getgajinya(), gajian.gettunjangan(),gajian.gettotal());
+//               baru.gettotal();
                break;
            case 4 :
-               System.out.println("nip     :"+baru.getnip());
-               System.out.println("nama   :"+baru.getnama());
-               System.out.println("golongan :"+baru.getgolongan());
-               System.out.println("gaji pokok :"+baru.banding());
-               System.out.println("tunjangan :"+baru.gettunjangan());
-               System.out.println("total gaji :"+baru.gettotal());
+               System.out.println("nip     :"+gajian.getnip());
+               System.out.println("nama   :"+gajian.getnama());
+               System.out.println("golongan :"+gajian.getgolongan());
+               System.out.print("gaji pokok :"); gajian.banding(gajian.getgolongan(), gajian.getgajinya());
+               System.out.print("\ntunjangan :");gajian.isitunjangan(gajian.getgolongan(), gajian.getgajinya(), gajian.gettunjangan());
+               System.out.print("\ntotal gaji :");gajian.akhirnya(gajian.getgolongan(),gajian.getgajinya(),gajian.gettunjangan(), gajian.gettotal());
                break;
+//           case 5 :
+//               
+//                    break;
            default : System.out.println("nomor yang anda masukan salah!");
+                        break;
        }
-    
+    System.out.println("\n\n apakah anda ingin mengulang Menu Gaji???\n (ketik 'ya' | abaikan 'enter')");
+       pi = isi.readLine();
+       }while(pi.equals(pi1));
+       
+    }else{
+    System.out.println("golongan invalid!!!!!");
+        }
+       
+      System.out.println("\n apakah anda ingin mengulang pengisian ?? \n (ketik ya |berhenti 'enter')");
+        pila =isi.readLine();
+      }while(pila.equals(pila1));
+      }
     }
-  }
-   
-    
 }
+

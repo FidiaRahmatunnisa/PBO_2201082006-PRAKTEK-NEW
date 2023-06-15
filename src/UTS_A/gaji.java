@@ -11,15 +11,15 @@ package UTS_A;
 public class gaji {
     private String nip;
     private String nama;
-    private String golongan;
-    private double gaji_pokok;
+    private int golongan;
+    public double gaji_pokok;
     private double tunjangan;
     private double total;
-    private static int gajitambah;
+    private static int tambah;
 //    private int banding;
     
     public gaji(){
-        gajitambah++;
+        tambah++;
     }
     
     //untuk nip
@@ -39,35 +39,44 @@ public class gaji {
    }
    
    //untuk golongan
-   public String getgolongan(){
+   public int getgolongan(){
        return golongan;
    }
-   public void  setgolongan(String golongan){
+   public void  setgolongan(int golongan){
        this.golongan = golongan;
    }
    
+   // gajinya
+   public double getgajinya(){
+       return gaji_pokok;
+   }
+   public void setgajinya(double gajinya){
+       this.gaji_pokok = gajinya;
+   }
+   
    //banding golongan
-   public double banding(String golongan){
-       if(null==golongan)System.out.println("golongan invalid!");
-       else switch (golongan) {
-            case "3A":
-                gaji_pokok = 1000000;
-                System.out.println(" gaji anda sebesar : Rp.1.000.000");
+   public double banding(int golongan, double gajinya){  // bagaimana cara mengolah ini , sehingga tunjangan, total dsb dipanggil saja dari ini
+       
+       switch (golongan) {
+            case 1:
+                gajinya = 1000000;
+//                System.out.print(gajinya);
                 break;
-            case "3B":
-                gaji_pokok = 2000000;
-                System.out.println("gaji anda sebesar : Rp.2.000.000");
+            case 2:
+                gajinya = 2000000;
+//                System.out.print(gajinya);
                 break;
-            case "3C":
-                gaji_pokok = 3000000;
-                System.out.println("gaji anda sebesar : Rp.3.000.000");
+            case 3:
+                gajinya = 3000000;
+//                System.out.print(gajinya);
                 break;
             default:
                 System.out.println("golongan invalid!");
                 break;
         }
-     
-       return  gaji_pokok;
+       System.out.print(gajinya);
+       return  gaji_pokok;    // bagian ini nggk ngaruh
+//       return tunjangan;  // ini juga nggk ngaruh
    }
    
    //untuk gaji pokok
@@ -77,18 +86,75 @@ public class gaji {
    
    // untuk tunjangan
    public double gettunjangan(){
-       tunjangan = 0.05*gaji_pokok;
-       return tunjangan;
+//       tunjangan = 0.05*this.getgolongan();
+//       return tunjangan;
+        return tunjangan;
+   }
+   
+   public void settunjagan(double tunjangan1, double gajinya){
+            
+//       this.tunjangan = tunjangan;
+//       tunjangan = 0.05*this.getgolongan();
+        this.tunjangan = tunjangan1 ;  // nggk ngaruh 
+   }
+   
+   public double isitunjangan(int golongan,double tunjangan1,double gajinya){
+       switch(golongan){
+           
+                case 1 :gajinya = 1000000; 
+                        tunjangan1 = gajinya*0.05;
+//                        System.out.println(tunjangan1);
+                        break;
+                case 2 : gajinya = 2000000; 
+                        tunjangan1 = gajinya*0.05;
+                        break;
+                case 3 : gajinya = 3000000; 
+                        tunjangan1 = gajinya*0.05;
+                        break;
+                default : System.out.print("tunjangan invalid!");
+            }
+       System.out.print(tunjangan1);
+       
+//       tunjangan1 = gajinya;
+//       System.out.print(tunjangan1);
+       return tunjangan;  //nggk ngaruh
+   }
+   
+   // total
+   public double akhirnya(int golongan,double gajinya, double tunjangan1,double totalnya){
+//       totalnya = this.golongan;
+         switch (golongan) {
+            case 1:
+                gajinya = 1000000;
+                break;
+            case 2:
+                gajinya = 2000000;
+                break;
+            case 3:
+                gajinya = 3000000;
+                break;
+            default:
+                System.out.println("golongan invalid!");
+                break;
+        }
+      tunjangan1 = gajinya*0.05;
+      totalnya = gajinya + tunjangan1;
+       System.out.print(totalnya);
+       
+       return total;
+   }
+   
+   public void settotal(double totalnya){
+       this.total = totalnya;
    }
    
    public double gettotal(){
-       total = gaji_pokok + tunjangan;
+//       this.total = this.gaji_pokok + this.tunjangan;
+//       System.out.print(this.total);
        return total;
    }
 
-    String banding() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 
 }
 

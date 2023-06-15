@@ -15,19 +15,24 @@ import java.io.IOException;
 
 public class menuBukuAlamat {
     public static void main(String[] args){
-        BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
-        dataBukuAlamat data = new dataBukuAlamat();
+        BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));  // input
+        dataBukuAlamat data = new dataBukuAlamat();    // template pola insert, update, delete, tampil
         int pil=0;
         try{
             while(pil!=5){
+               
+                bukuAlamat temp = new bukuAlamat();   // template asal
+                
                 System.out.println("1. input data");
                 System.out.println("2. hapus data");
                 System.out.println("3. update data");
                 System.out.println("4. tampilkan data");
                 System.out.print("pilihan anda : ");
                 pil = Integer.parseInt(dataIn.readLine());
+                
+                 int i = 0;
                 switch(pil){
-                    case 1 : bukuAlamat temp = new bukuAlamat();
+                    case 1 : 
                               System.out.print("nama               :");
                               temp.setNama(dataIn.readLine());
                               System.out.print("alamat             :");
@@ -38,12 +43,12 @@ public class menuBukuAlamat {
                               temp.setEmail(dataIn.readLine());
                               data.insert(temp);
                               break;
-//                    case 2 :  System.out.println("nama               :");
-//                              System.out.println("alamat             :");
-//                              System.out.println("nomor Telepon      :");
-//                              System.out.println("email              :");
-//                              break;
-//                    case 3 :  
+                    case 2 :  System.out.println("masukan data keberapa yang ingin anda hapus??  ");
+                              i = Integer.parseInt(dataIn.readLine());
+                              data.delete(i);
+                              break;
+                    case 3 :  
+                   
                         //System.out.print("Masukkan nama untuk mencari data yang akan diupdate: ");
 //                        String namaUpdate = dataIn.readLine();
     
@@ -52,14 +57,19 @@ public class menuBukuAlamat {
 //    
 //                    //if (dataToUpdate != null) {
 //                        System.out.println("Data ditemukan. Silakan masukkan data baru untuk update.");
-//                        System.out.print("Nama baru           : ");
-//                        String newNama = dataIn.readLine();
-//                        System.out.print("Alamat baru         : ");
-//                        String newAlamat = dataIn.readLine();
-//                        System.out.print("Nomor Telepon baru  : ");
-//                        String newNomor = dataIn.readLine();
-//                        System.out.print("Email baru          : ");
-//                        String newEmail = dataIn.readLine();
+                        System.out.println("masukan data keberapa yang ingin di update ??");
+                        i = Integer.parseInt(dataIn.readLine());
+                        
+                        System.out.print("Nama baru           : ");
+                        temp.setNama(dataIn.readLine());
+                        System.out.print("Alamat baru         : ");
+                        temp.setAlamat(dataIn.readLine());
+                        System.out.print("Nomor Telepon baru  : ");
+                        temp.setNomor(dataIn.readLine());
+                        System.out.print("Email baru          : ");
+                        temp.setEmail(dataIn.readLine());
+                        
+                        data.update(i, temp);
 //        
 //                        // Update data
 //                        dataToUpdate.setNama(newNama);
@@ -71,18 +81,22 @@ public class menuBukuAlamat {
 //                    } else {    
 //                        System.out.println("Data tidak ditemukan.");
 //                    }
-//                        break;        
+                        break;        
            
                     case 4 : bukuAlamat[] list = data.getAll();
-                            int i = 0;
-                            for (bukuAlamat list1 : list) {
-                              System.out.println("buku alamat ke---> "+(i+1));
-                              System.out.println("nama            :" + list1.getNama());
-                              System.out.println("alamat          :" + list1.getAlamat());
-                              System.out.println("nomor telepon   :" + list1.getNomor());
-                               System.out.println("email           : " + list1.getEmail());
-                            break;
+                            for (i=0;i<list.length;i++) {
+                                if(list[i] != null){
+                              System.out.println("buku alamat ke---> "+(i));
+                              System.out.println("nama            :" + list[i].getNama());
+                              System.out.println("alamat          :" + list[i].getAlamat());
+                              System.out.println("nomor telepon   :" + list[i].getNomor());
+                              System.out.println("email           : " + list[i].getEmail());
+                              System.out.println("=========================================") ;
+                            }else{
+                                    System.out.println("data kosong tidak ada!");
+                                }
                     }
+                              break;
                     default : System.out.println("Nomor yang anda masukan tidak sesuai");
 
                 }
