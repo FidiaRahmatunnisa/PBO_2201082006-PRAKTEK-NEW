@@ -22,7 +22,6 @@ public person(){
 public person(String name, String address){
     this.name = name;
     this.address = address;
-    
 }
 
 public String getName(){ //accesor
@@ -42,8 +41,5 @@ public void setAddress(String address){//mutator
     this.address = address;
 }
 
-
-
-
-
+    
 }//akhir class

@@ -10,8 +10,9 @@ package Fidia260523;
  */
 public class students extends person {
     public students(){
+        // cara 1
         super("Anna","Padang");
-        
+//        cara 2
 //        super() maka yang diakses adalah constructor yg pertama
 // cara lain:
 //         super.name ="Anna";
@@ -19,6 +20,7 @@ public class students extends person {
 //        System.out.println("inside Student : constructor");
     }
     
+//    cara 3
 //    @Override
 //    public String getName(){ // ini disebut overiade
 //          System.out.println("students :getName");
