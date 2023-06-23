@@ -1,4 +1,4 @@
-/*
+   /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -9,8 +9,6 @@ package Fidia160623.model;
  * @author HP
  */
 public class Anggota {
- 
-    
     private String kodeAnggota;
     private String namaAnggota;
     private String alamat;
@@ -19,7 +17,6 @@ public class Anggota {
      public Anggota(){
         
     }
-     
      
      public Anggota(String kodeAnggota,String namaAnggota, String alamat, String jenisKelamin){
        this.namaAnggota = namaAnggota;
