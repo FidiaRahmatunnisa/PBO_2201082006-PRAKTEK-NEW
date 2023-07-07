@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Fidia160623.model;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -56,9 +59,17 @@ public class Peminjaman{
         this.tglKembali = tglKembali;
     }
     
-    public int getSelisih(){
-        return 1;
+    public long getSelisih() throws ParseException{
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        Date d1 = format.parse(tglPinjam);
+        Date d2 = format.parse(tglKembali);
+        long diff= d2.getTime()-d1.getTime();
+        long diffDays = diff /(24*60*60*1000);
+       
+        return diffDays;
     }
+    
+    
     
     
 }

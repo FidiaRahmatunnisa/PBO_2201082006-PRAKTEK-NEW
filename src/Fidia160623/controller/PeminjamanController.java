@@ -9,6 +9,9 @@ import Fidia160623.view.*;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author HP
@@ -54,11 +57,14 @@ public class PeminjamanController {
     }
     
     //buat tampilan
-    public void tampil(){
+    public void tampil() throws ParseException{
         DefaultTableModel tabelModel = (DefaultTableModel)view.getTabelPeminjaman().getModel();
         tabelModel.setRowCount(0);
         List<Peminjaman> list = dao.getAll();
-        for(Peminjaman c : list){
+        for(Peminjaman c : list)
+         
+        {
+            try{   
            Object[] row = {
                c.getKodeAnggota(),
                c.getKodeBuku(),
@@ -66,7 +72,11 @@ public class PeminjamanController {
                c.getTglKembali(),
                c.getSelisih()
            };
-           tabelModel.addRow(row);
+           tabelModel.addRow(row); }
+        catch(ParseException ex){
+                Logger.getLogger(PeminjamanController.class.getName()).log(Level.SEVERE, null, ex);
+                
+                }
         }
     }
     

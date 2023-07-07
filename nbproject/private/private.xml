@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/view/FormBuku.java</file>
-            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/controller/BukuController.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/dao/BukuDaoImple.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/controller/AnggotaController.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/dao/BukuDao.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/view/FormPeminjaman.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/model/Peminjaman.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia090323/latihan1.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/model/test1.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/dao/AnggotaDaoImple.java</file>
+            <file>file:/C:/PBO_Fidia%20Rahmatunnisa/PBO_2201082006/src/Fidia160623/controller/PeminjamanController.java</file>
         </group>
     </open-files>
 </project-private>
