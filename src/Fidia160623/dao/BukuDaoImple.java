@@ -15,8 +15,16 @@ public class BukuDaoImple implements BukuDao{
     private final List<Buku> data1 = new ArrayList<>();
     
     // coba tambahkan data secara manual
+
+    public BukuDaoImple() {
+        
+        data1.add(new Buku("B001","Laskar Pelangi","Andrea Hirata","Grammedia"));
+        data1.add(new Buku("B002","Bumi","Tere Liye","Bintang Pustaka"));
+    }
     
 
+    
+    
     @Override
     public void insert(Buku buku) {
         data1.add(buku);

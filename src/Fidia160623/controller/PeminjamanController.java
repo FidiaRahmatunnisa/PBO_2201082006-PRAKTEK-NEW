@@ -17,18 +17,40 @@ public class PeminjamanController {
     FormPeminjaman view;
     Peminjaman peminjaman;
     PeminjamanDao dao;
+    BukuDao bukuDao;
+    AnggotaDao anggotaDao;
 
     public PeminjamanController(FormPeminjaman view) {
         this.view = view;
         dao = new PeminjamanDaoImple();
+        anggotaDao = new AnggotaDaoImple();
+        bukuDao = new BukuDaoImple();
     }
     
     //buat clearForm
     public void clearForm(){
-        view.getKodeAnggota().setText("");
-        view.getKodeBuku().setText("");
+//        view.getKodeAnggota().setText("");
+//        view.getKodeBuku().setText("");
         view.getTglPinjam().setText("");
         view.getTglKembali().setText("");
+    }
+    
+    
+    //mengambil nilai dari sesuatu yang telah ada
+    public void isiCombo(){  
+        // mengisi kombo anggota 
+        view.getCboAnggota().removeAllItems();
+        List<Anggota> listAnggota = anggotaDao.getAll();
+        for(Anggota anggota : listAnggota){
+            view.getCboAnggota().addItem(anggota.getKodeAnggota());
+        }
+        
+        // mengisi  kombo buku
+        view.getCboBuku().removeAllItems();
+        List<Buku> listBuku= bukuDao.getAll();
+        for(Buku buku : listBuku){
+            view.getCboBuku().addItem(buku.getKodeBuku());
+        }
     }
     
     //buat tampilan
@@ -41,7 +63,8 @@ public class PeminjamanController {
                c.getKodeAnggota(),
                c.getKodeBuku(),
                c.getTglPinjam(),
-               c.getTglKembali()
+               c.getTglKembali(),
+               c.getSelisih()
            };
            tabelModel.addRow(row);
         }
@@ -50,8 +73,8 @@ public class PeminjamanController {
     //aktif buton insert
     public void insert(){
         peminjaman = new Peminjaman();
-        peminjaman.setKodeAnggota(view.getKodeAnggota().getText());
-        peminjaman.setKodeBuku(view.getKodeBuku().getText());
+        peminjaman.setKodeAnggota(view.getCboAnggota().getSelectedItem().toString());
+        peminjaman.setKodeBuku(view.getCboBuku().getSelectedItem().toString());
         peminjaman.setTglPinjam(view.getTglPinjam().getText());  // perlakuan ke tipe selain string beda
         peminjaman.setTglKembali(view.getTglKembali().getText());
         dao.insert(peminjaman);
@@ -61,8 +84,8 @@ public class PeminjamanController {
     // aktif buton update
     public void update(){
         int index = view.getTabelPeminjaman().getSelectedRow();
-        peminjaman.setKodeAnggota(view.getKodeAnggota().getText());
-        peminjaman.setKodeBuku(view.getKodeBuku().getText());
+        peminjaman.setKodeAnggota(view.getCboAnggota().getSelectedItem().toString());
+        peminjaman.setKodeBuku(view.getCboBuku().getSelectedItem().toString());
         peminjaman.setTglPinjam(view.getTglPinjam().getText());
         peminjaman.setTglKembali(view.getTglKembali().getText());
         dao.update(index, peminjaman);
@@ -80,8 +103,8 @@ public class PeminjamanController {
     public void getPeminjaman(){
         int index = view.getTabelPeminjaman().getSelectedRow();
         peminjaman = dao.getPeminjaman(index);
-        view.getKodeAnggota().setText(peminjaman.getKodeAnggota());
-        view.getKodeBuku().setText(peminjaman.getKodeBuku());
+        view.getCboAnggota().setSelectedItem(peminjaman.getKodeAnggota());
+        view.getCboBuku().setSelectedItem(peminjaman.getKodeBuku());
         view.getTglPinjam().setText(peminjaman.getTglPinjam());
         view.getTglKembali().setText(peminjaman.getTglPinjam());
         

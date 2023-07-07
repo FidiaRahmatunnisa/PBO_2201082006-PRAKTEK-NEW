@@ -56,5 +56,9 @@ public class Peminjaman{
         this.tglKembali = tglKembali;
     }
     
+    public int getSelisih(){
+        return 1;
+    }
+    
     
 }
